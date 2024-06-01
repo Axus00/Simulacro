@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Prueba.Data;
 using Prueba.Services;
+using Prueba.Services._consultas;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IEspecialidadRepository, EspecialidadRepository>();
 builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
 builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
 builder.Services.AddScoped<ITratamientoRepository, TratamientoRepository>();
+builder.Services.AddScoped<IConsultasRespository, ConsultasRespository>();
 
 var app = builder.Build();
 

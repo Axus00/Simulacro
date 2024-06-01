@@ -76,9 +76,7 @@ namespace Prueba.Services
             cita_update.Paciente = cita.Paciente;
             cita_update.Tratamientos = cita.Tratamientos;
 
-            //enviamos mensaje recordando la cita médica
-            MailController Email = new MailController();
-            Email.SendEmail();
+            
             
             _context.SaveChanges();
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Prueba.Data;
 using Prueba.Dto;
 using Prueba.Models;
@@ -48,6 +49,7 @@ namespace Prueba.Services
 
                 listEspecialidad.Add(especialidadDto);
             }
+            
 
             return listEspecialidad;
         }
@@ -60,14 +62,27 @@ namespace Prueba.Services
             _context.SaveChanges();
         }
 
-        public void Update(int id, Especialidad especialidad)
+        public void Update(int id,  Especialidad especialidad)
         {
             var _especialidad = _context.Especialidades.FirstOrDefault(e => e.Id == id);
             _especialidad.Nombre = especialidad.Nombre;
             _especialidad.Descripcion = especialidad.Descripcion;
+            _especialidad.Estado = especialidad.Estado;
 
             _context.SaveChanges();
         }
 
+        public void UpdateStatus(int id, [FromBody] EspecialidadDto especialidad)
+        {
+            var update_status = _context.Especialidades.FirstOrDefault(esp => esp.Id == id);
+            EspecialidadDto especialidadDto = new EspecialidadDto(update_status.Id, update_status.Nombre, update_status.Descripcion, update_status.Estado.ToString());
+
+            especialidadDto.Id = especialidad.Id;
+            especialidadDto.Nombre = especialidad.Nombre;
+            especialidadDto.Descripcion = especialidad.Descripcion;
+            especialidadDto.Estado = especialidad.Estado;
+
+            _context.SaveChanges();
+        }
     }
 }

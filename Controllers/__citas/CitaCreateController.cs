@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Prueba.Controllers._mail;
 using Prueba.Models;
 using Prueba.Services;
 
@@ -26,6 +27,9 @@ namespace Prueba.Controllers.__citas
             try
             {
                 _citaRepository.Add(cita);
+                //enviamos mensaje recordando la cita médica
+                MailController Email = new MailController();
+                Email.SendEmail();
                 return Ok("La cita ha sido creada de forma exitosa");
             }
             catch

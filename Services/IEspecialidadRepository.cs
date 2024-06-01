@@ -14,5 +14,6 @@ namespace Prueba.Services
         void Add(Especialidad especialidad);
         void Remove(int id);
         void Update(int id, Especialidad especialidad);
+        void UpdateStatus(int id, EspecialidadDto especialidad); // actualizamos estado
     }
 }

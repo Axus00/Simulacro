@@ -16,7 +16,7 @@ namespace Prueba.Controllers._mail
             try
             {
                 string url = "https://api.mailersend.com/v1/email";
-                string AuthToken = "mlsn.bc4c7b0974259756254bb2fed9ba4a99b80775474a10b82d2c62dd81ea5bc1ff";
+                string AuthToken = "mlsn.8b2536b0d00a573489f0eb333ff843771ccdbe23352ca27bee7a1d7eef3c5848";
                 var email_message = new Email
                 {
                     from = new From { Email = "info@trial-0r83ql3omdvlzwlj.mlsender.net"},
@@ -58,10 +58,10 @@ namespace Prueba.Controllers._mail
                 throw;
             }
         }
-
+ 
         internal void SendEmail()
         {
-            throw new NotImplementedException();
+            SendEmail();
         }
     }
 }
